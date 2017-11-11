@@ -52,7 +52,9 @@
     "dotenv": "^2.0.0",
     "google-maps-react": "^1.1.2",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "react-toolbox": "^2.0.0-beta.12",
+    "react-typeform": "^0.1.1"
   },
   "scripts": {
     "start": "node scripts/start.js",

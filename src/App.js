@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import SimpleStorageContract from '../build/contracts/SimpleStorage.json'
 import lmDB from '../build/contracts/LifeMesh.json'
 import getWeb3 from './utils/getWeb3'
+import Button from 'react-toolbox/lib/button/Button';
 
 import './css/oswald.css'
 import './css/open-sans.css'
@@ -55,7 +56,7 @@ class App extends Component {
     var lmDBInstance
 
     // Get accounts.
-    /*this.state.web3.eth.getAccounts((error, accounts) => {
+    this.state.web3.eth.getAccounts((error, accounts) => {
       if (error) {
           console.log(error);
       }
@@ -65,14 +66,16 @@ class App extends Component {
         lmDBInstance = instance
 
         // Stores a given value, 5 by default.
-        return lmDBInstance.createRecipient("w4w", "Manila", {from: accounts[0]})
+        /*return lmDBInstance.createRecipient("w4w", "Manila", {from: accounts[0]})
         .then((result) => {
           console.log("result is "+result)
           return this.setState({ storageValue: result })
-        })
+        })*/
+
       })
-    })*/
+    })
     
+    //quickstart example
     /*this.state.web3.eth.getAccounts((error, accounts) => {
       if (error) {
         console.log(error);
@@ -95,25 +98,33 @@ class App extends Component {
 
   }
 
+  state = { name: '', phone: '', email: '', hint: '' };
   
-  render() {
-    return (
+  handleChange = (value, ev) => {
+    this.setState({ [ev.target.name]: value });
+  };
+
+  submit(){
+    alert('submitted')
+  }
+
+  render(){
+    return(
       <div className="App">
         <nav className="navbar pure-menu pure-menu-horizontal">
-            <center>
-              <label className="abbr">Lifemesh: Help where its needed</label>
-            </center>
+          <a href="http://lifeme.sh" className="pure-menu-heading pure-menu-link">Lifemesh</a>
         </nav>
 
         <main className="container">
+          
           <div className="pure-g">
             <div className="pure-u-1-1">
-              <h1>Good to Go!</h1>
-              <p>Your Truffle Box is installed and ready.</p>
-              <h2>Smart Contract Example</h2>
-              <p>If your contracts compiled and migrated successfully, below will show a stored value of 5 (by default).</p>
-              <p>Try changing the value stored on <strong>line 59</strong> of App.js.</p>
-              <p>The stored value is: {this.state.storageValue}</p>
+              <center>
+                <h1>Help where it's needed</h1>
+                <Button label="I need help - replace w 2 button bar thing" />
+                <Button label="I want to help - put these on a type form?" />
+                
+              </center>
             </div>
           </div>
         </main>
@@ -123,3 +134,5 @@ class App extends Component {
 }
 
 export default App
+
+
