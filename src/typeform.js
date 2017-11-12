@@ -18,7 +18,6 @@ class TypeFormComponent extends Component {
     return(
         <Typeform onSubmit={this.submit}>
           <Input type='text' label='Name' name='name' value={this.state.name} onChange={this.handleChange} maxLength={16 } />
-          
         </Typeform>
     );
   }
