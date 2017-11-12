@@ -66,12 +66,11 @@ class App extends Component {
         console.log("lifemesh smart contract deployed")
         lmDBInstance = instance
 
-        // Stores a given value, 5 by default.
-        /*return lmDBInstance.createRecipient("w4w", "Manila", {from: accounts[0]})
+        return lmDBInstance.createRecipient("w4w", "Manila", {from: accounts[0]})
         .then((result) => {
           console.log("result is "+result)
           return this.setState({ storageValue: result })
-        })*/
+        })
 
       })
     })
