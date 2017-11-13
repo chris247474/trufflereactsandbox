@@ -1,14 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
-import GoogleApiWrapper from './googlemap'
+//import GoogleApiWrapper from './googlemap'
+import { BrowserRouter } from 'react-router-dom'
 
 ReactDOM.render(
-  <div>
+  <BrowserRouter>
     <App />
-    <br></br><br></br><br></br><br></br><br></br><br></br>
-    <GoogleApiWrapper />
-  </div>,
+  </BrowserRouter>,
   document.getElementById('root')
 );
 

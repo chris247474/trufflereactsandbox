@@ -54,6 +54,7 @@
     "react": "^15.4.2",
     "react-bootstrap": "^0.31.5",
     "react-dom": "^15.4.2",
+    "react-router-dom": "^4.2.2",
     "react-toolbox": "^2.0.0-beta.12",
     "react-typeform": "^0.1.1",
     "styled-components": "^2.2.3"
