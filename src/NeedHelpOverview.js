@@ -2,40 +2,21 @@ import React from 'react'
 import { Button } from 'react-bootstrap';
 import styled, { injectGlobal } from 'styled-components'
 import { Switch, Route } from 'react-router-dom'
+import GoogleApiWrapper from './googlemap'
 
-const ButtonNavigate = ({ title, pagedest, history }) => (
-    <Button onClick={() => history.push(pagedest)}
-            bsStyle="primary" bsSize="large" block>
-        {title}
-    </Button>
-);
-
-const ButtonHelpGroup = () => (
-    <div className="well" style={WellStyles}>
-        <Route path="/" render={(props) => 
-            <ButtonNavigate {...props} title="I need help" 
-            pagedest='NewHelpPage'/>} />
-        <Route path="/" render={(props) => 
-            <ButtonNavigate {...props} title="I want to help" 
-            pagedest='NewWantPage'/>} />
+const NeedHelpOverview = () => (
+    <div>
+      <Container>
+          <Header>
+              <H2>Waiting for Help</H2>
+          </Header>
+          
+      </Container>
+      <GoogleApiWrapper />
     </div>
-)    
-
-const Home = () => (
-  <div>
-    <Container>
-        <Header>
-            <H1>Help where it's needed</H1>
-            <ButtonHelpGroup />
-        </Header>
-    </Container>
-    
-  </div>
-)
+  )
 
 //need to move this to external file
-const WellStyles = { maxWidth: 1000, margin: '0 auto 10px' };
-
 const Container = styled.div`
 display: flex;
 flex-direction: column;
@@ -160,4 +141,4 @@ body {
 }
 `
 
-export default Home
+export default NeedHelpOverview

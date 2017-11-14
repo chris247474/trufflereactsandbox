@@ -11,6 +11,8 @@ const Header = () => (//needs proper navbar styling
         <li><Link to='/googlemap'>Overview</Link></li>
         <li><Link to='/NewHelpPage'>Need Help</Link></li>
         <li><Link to='/NewWantPage'>Want to Help</Link></li>
+        <li><Link to='/NeedHelpOverview'>NeedHelpOverview</Link></li>
+        <li><Link to='/WantToHelpOverview'>WantToHelpOverview</Link></li>
       </ul>
     </nav>
   </header>

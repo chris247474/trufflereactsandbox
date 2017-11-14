@@ -1,8 +1,15 @@
 import React from 'react'
 import { Button } from 'react-bootstrap';
 import styled, { injectGlobal } from 'styled-components'
-//import { Container, Header, H1, H2, InputText, ItemLabel } from './Home'
 import { Switch, Route } from 'react-router-dom'
+
+//move to proper helper file
+const ButtonNavigate = ({ title, pagedest, history }) => (
+    <Button onClick={() => history.push(pagedest)}
+            bsStyle="primary" bsSize="large" block>
+        {title}
+    </Button>
+);
 
 function submit(){
     alert('Next page under construction')
@@ -20,15 +27,15 @@ const NewHelpPage = () => (
             Describe your Need and situation in full, such as your urgency, need type and quantity, etc and we'll handle the rest! Don't leave anything out
         </ItemLabel>
         <InputText />
-        <Button onClick={() => submit()}
-                bsStyle="primary" bsSize="large" block>
-            Submit
-        </Button>
+        <Route path="/" render={(props) =>
+            <ButtonNavigate {...props} title="Ask for Help" 
+                pagedest='NeedHelpOverview'/>} />
     </Container>
     
   </div>
 )
 
+//need to move this to external file
 const Container = styled.div`
 display: flex;
 flex-direction: column;
