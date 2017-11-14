@@ -18,3 +18,6 @@ Env Notes:
  - standard testrpc scripts like we have w our hackathon proto
  - deploy lifemesh.sol to testnet
  - build out first page (accdng to Balsamiq) w proper layouts, etc
+
+ Resources:
+ - routing based on https://medium.com/@pshrmn/a-simple-react-router-v4-tutorial-7f23ff27adf, https://codesandbox.io/s/21pm1lky7r 

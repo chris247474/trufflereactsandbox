@@ -2,6 +2,8 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Home from "./Home";
 import GoogleApiWrapper from "./googlemap";
+import NewWantPage from "./NewWantPage";
+import NewHelpPage from "./NewHelpPage";
 
 // The Main component renders one of the three provided
 // Routes (provided that one matches). Both the /roster
@@ -13,6 +15,8 @@ const Main = () => (
     <Switch>
       <Route exact path="/" component={Home} />
       <Route path="/googlemap" component={GoogleApiWrapper} />
+      <Route exact path="/NewWantPage" component={NewWantPage} />
+      <Route path="/NewHelpPage" component={NewHelpPage} />
     </Switch>
   </main>
 );

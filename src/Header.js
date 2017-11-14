@@ -9,6 +9,8 @@ const Header = () => (//needs proper navbar styling
       <ul>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/googlemap'>Overview</Link></li>
+        <li><Link to='/NewHelpPage'>Need Help</Link></li>
+        <li><Link to='/NewWantPage'>Want to Help</Link></li>
       </ul>
     </nav>
   </header>

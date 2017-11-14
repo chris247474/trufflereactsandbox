@@ -1,39 +1,33 @@
 import React from 'react'
 import { Button } from 'react-bootstrap';
 import styled, { injectGlobal } from 'styled-components'
+//import { Container, Header, H1, H2, InputText, ItemLabel } from './Home'
 import { Switch, Route } from 'react-router-dom'
 
-const ButtonNavigate = ({ title, pagedest, history }) => (
-    <Button onClick={() => history.push(pagedest)}
-            bsStyle="primary" bsSize="large" block>
-        {title}
-    </Button>
-);
+function submit(){
+    alert('Next page under construction')
+}
 
-const ButtonHelpGroup = () => (
-    <div className="well" style={WellStyles}>
-        <Route path="/" render={(props) => 
-            <ButtonNavigate {...props} title="I need help" 
-            pagedest='./NewHelpPage'/>} />
-        <Route path="/" render={(props) => 
-            <ButtonNavigate {...props} title="I want to help" 
-            pagedest='./NewWantPage'/>} />
-    </div>
-)    
-
-const Home = () => (
+const NewHelpPage = () => (
   <div>
     <Container>
         <Header>
-            <H1>Help where it's needed</H1>
-            <ButtonHelpGroup />
-        </Header>
+            <H2>We Need Help</H2>
+        </Header><br />
+        <ItemLabel>What's the title of this Need?</ItemLabel>
+        <InputText /><br /><br />
+        <ItemLabel>
+            Describe your Need and situation in full, such as your urgency, need type and quantity, etc and we'll handle the rest! Don't leave anything out
+        </ItemLabel>
+        <InputText />
+        <Button onClick={() => submit()}
+                bsStyle="primary" bsSize="large" block>
+            Submit
+        </Button>
     </Container>
     
   </div>
 )
-
-const WellStyles = { maxWidth: 1000, margin: '0 auto 10px' };
 
 const Container = styled.div`
 display: flex;
@@ -159,4 +153,4 @@ body {
 }
 `
 
-export default Home
+export default NewHelpPage
