@@ -44,20 +44,22 @@ export class MapContainer extends Component {
         let width = window.screen.availWidth* 0.9;
         let margin = window.screen.availWidth* 0.2;
         return (
-            <Card 
-                style={{width:'90%', height:height}}
-                >
-                <Map style={{width:'90%'}}
-                    google={this.props.google} zoom={14}>
-                    <Marker onClick={this.onMarkerClick}
-                            name={'Current location'} />
-                    <InfoWindow onClose={this.onInfoWindowClose}>
-                        <div>
-                        </div>
-                    </InfoWindow>
-                </Map>
-                
-            </Card>
+            <center>
+                <Card 
+                    style={{width:'90%', height:height}}
+                    >
+                    <Map style={{width:'90%'}}
+                        google={this.props.google} zoom={14}>
+                        <Marker onClick={this.onMarkerClick}
+                                name={'Current location'} />
+                        <InfoWindow onClose={this.onInfoWindowClose}>
+                            <div>
+                            </div>
+                        </InfoWindow>
+                    </Map>
+                    
+                </Card>
+            </center>
 
         );
     }
