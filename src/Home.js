@@ -6,7 +6,6 @@ import GoogleApiWrapper from './googlemap'
 import StepButton from 'material-ui/RaisedButton';
 import CardHeader from 'material-ui/Card/CardHeader';
 
-
 const ButtonNavigate = ({ title, pagedest, history }) => (
     <StepButton onClick={() => history.push(pagedest)}>
         {title}
@@ -29,10 +28,11 @@ const Home = () => (
     <center>
         <H2>Help where it's needed</H2>
         <ButtonHelpGroup />
-    </center>
+   
     
-    <br />
-    <GoogleApiWrapper />
+        <br />
+        <GoogleApiWrapper />
+    </center>
   </div>
 )
 

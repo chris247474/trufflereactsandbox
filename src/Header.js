@@ -12,21 +12,32 @@ const NavBarItem = ({ title, pagedest, history }) => (
     </FlatButton>
 );
 
+const ExtraNav = () => (
+    <div>
+        <Route path="/" render={(props) => 
+            <NavBarItem {...props} title="Need Help Overview" 
+            pagedest='NeedHelpOverview'/>} />
+        <Route path="/" render={(props) => 
+            <NavBarItem {...props} title="Want to Help Overview" 
+            pagedest='WantToHelpOverview'/>} />
+    </div>
+);
+
 // The Header creates links that can be used to navigate
 // between routes.
 const Header = () => (//needs proper navbar styling
     <div>
         <AppBar 
             style={{ position: 'fixed', top: 0 }}
-                className="nav"
-                titleStyle={{ textAlign: 'center' }}
+            className="nav"
+            titleStyle={{ textAlign: 'center' }}
             showMenuIconButton={false}
             className="header"
             title="Lifemesh"
             titleStyle={{ textAlign: 'left' }}
 
             children={
-                <div>
+                <div className="nav" style={{ position: 'fixed', top: 20, right: 20 }}>
                     <Route path="/" render={(props) => 
                         <NavBarItem {...props} title="Home" 
                         pagedest=''/>} />
@@ -39,12 +50,7 @@ const Header = () => (//needs proper navbar styling
                     <Route path="/" render={(props) => 
                         <NavBarItem {...props} title="Want to Help" 
                         pagedest='NewWantPage'/>} />
-                    <Route path="/" render={(props) => 
-                        <NavBarItem {...props} title="Need Help Overview" 
-                        pagedest='NeedHelpOverview'/>} />
-                    <Route path="/" render={(props) => 
-                        <NavBarItem {...props} title="Want to Help Overview" 
-                        pagedest='WantToHelpOverview'/>} />
+                    
                 </div>
             }
         />

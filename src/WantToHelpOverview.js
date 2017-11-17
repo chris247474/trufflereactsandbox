@@ -6,13 +6,15 @@ import GoogleApiWrapper from './googlemap'
 
 const WantToHelpOverview = () => (
     <div>
-      <Container>
-          <Header>
-              <H2>Who should we help?</H2>
-          </Header>
-          
-      </Container>
-      <GoogleApiWrapper />
+      <center>
+        <Container>
+            <Header>
+                <H2>Who should we help?</H2>
+            </Header>
+            
+        </Container>
+        <GoogleApiWrapper />
+      </center>
     </div>
   )
 
