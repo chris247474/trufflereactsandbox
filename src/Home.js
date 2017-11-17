@@ -2,16 +2,19 @@ import React from 'react'
 import { Button } from 'react-bootstrap';
 import styled, { injectGlobal } from 'styled-components'
 import { Switch, Route } from 'react-router-dom'
+import GoogleApiWrapper from './googlemap'
+import StepButton from 'material-ui/RaisedButton';
+import CardHeader from 'material-ui/Card/CardHeader';
+
 
 const ButtonNavigate = ({ title, pagedest, history }) => (
-    <Button onClick={() => history.push(pagedest)}
-            bsStyle="primary" bsSize="large" block>
+    <StepButton onClick={() => history.push(pagedest)}>
         {title}
-    </Button>
-);
+    </StepButton>
+);//bsStyle="primary" bsSize="large" block
 
 const ButtonHelpGroup = () => (
-    <div className="well" style={WellStyles}>
+    <div>
         <Route path="/" render={(props) => 
             <ButtonNavigate {...props} title="I need help" 
             pagedest='NewHelpPage'/>} />
@@ -23,13 +26,13 @@ const ButtonHelpGroup = () => (
 
 const Home = () => (
   <div>
-    <Container>
-        <Header>
-            <H1>Help where it's needed</H1>
-            <ButtonHelpGroup />
-        </Header>
-    </Container>
+    <center>
+        <H2>Help where it's needed</H2>
+        <ButtonHelpGroup />
+    </center>
     
+    <br />
+    <GoogleApiWrapper />
   </div>
 )
 

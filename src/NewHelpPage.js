@@ -2,13 +2,16 @@ import React from 'react'
 import { Button } from 'react-bootstrap';
 import styled, { injectGlobal } from 'styled-components'
 import { Switch, Route } from 'react-router-dom'
+import FloatingActionButton from 'material-ui/FloatingActionButton'
+
 
 //move to proper helper file
 const ButtonNavigate = ({ title, pagedest, history }) => (
-    <Button onClick={() => history.push(pagedest)}
-            bsStyle="primary" bsSize="large" block>
+    <FloatingActionButton onClick={() => history.push(pagedest)} 
+        //style={{width: '40px', height: '40px'}}
+        >
         {title}
-    </Button>
+    </FloatingActionButton>
 );
 
 function submit(){
@@ -27,11 +30,11 @@ const NewHelpPage = () => (
             Describe your Need and situation in full, such as your urgency, need type and quantity, etc and we'll handle the rest! Don't leave anything out
         </ItemLabel>
         <InputText />
+        <br /><br />
         <Route path="/" render={(props) =>
-            <ButtonNavigate {...props} title="Ask for Help" 
+            <ButtonNavigate {...props} //title="Ask for Help" 
                 pagedest='NeedHelpOverview'/>} />
     </Container>
-    
   </div>
 )
 

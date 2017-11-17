@@ -1,21 +1,55 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import AppBar from 'material-ui/AppBar';
+import FlatButton from 'material-ui/FlatButton';
+import Menu from 'material-ui/Menu';
+import MenuItem from 'material-ui/MenuItem';
+import { Switch, Route } from 'react-router-dom'
+
+const NavBarItem = ({ title, pagedest, history }) => (
+    <FlatButton onClick={() => history.push(pagedest)}>
+        {title}
+    </FlatButton>
+);
 
 // The Header creates links that can be used to navigate
 // between routes.
 const Header = () => (//needs proper navbar styling
-  <header>
-    <nav>
-      <ul>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/googlemap'>Overview</Link></li>
-        <li><Link to='/NewHelpPage'>Need Help</Link></li>
-        <li><Link to='/NewWantPage'>Want to Help</Link></li>
-        <li><Link to='/NeedHelpOverview'>NeedHelpOverview</Link></li>
-        <li><Link to='/WantToHelpOverview'>WantToHelpOverview</Link></li>
-      </ul>
-    </nav>
-  </header>
+    <div>
+        <AppBar 
+            style={{ position: 'fixed', top: 0 }}
+                className="nav"
+                titleStyle={{ textAlign: 'center' }}
+            showMenuIconButton={false}
+            className="header"
+            title="Lifemesh"
+            titleStyle={{ textAlign: 'left' }}
+
+            children={
+                <div>
+                    <Route path="/" render={(props) => 
+                        <NavBarItem {...props} title="Home" 
+                        pagedest=''/>} />
+                    <Route path="/" render={(props) => 
+                        <NavBarItem {...props} title="Overview" 
+                        pagedest='googlemap'/>} />
+                    <Route path="/" render={(props) => 
+                        <NavBarItem {...props} title="Need Help" 
+                        pagedest='NewHelpPage'/>} />
+                    <Route path="/" render={(props) => 
+                        <NavBarItem {...props} title="Want to Help" 
+                        pagedest='NewWantPage'/>} />
+                    <Route path="/" render={(props) => 
+                        <NavBarItem {...props} title="Need Help Overview" 
+                        pagedest='NeedHelpOverview'/>} />
+                    <Route path="/" render={(props) => 
+                        <NavBarItem {...props} title="Want to Help Overview" 
+                        pagedest='WantToHelpOverview'/>} />
+                </div>
+            }
+        />
+        
+    </div>
 )
 
 export default Header

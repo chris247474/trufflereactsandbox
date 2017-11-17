@@ -4,6 +4,7 @@ import lmDB from '../build/contracts/LifeMesh.json'
 import getWeb3 from './utils/getWeb3'
 import Header from './Header'
 import Main from './Main'
+import BottomNav from './BottomNav'
 
 import './css/oswald.css'
 import './css/open-sans.css'
@@ -80,6 +81,7 @@ class App extends Component {
     return(
       <div>
         <Header />
+        <br /><br /><br /><br />
         <Main />
       </div>
     );
