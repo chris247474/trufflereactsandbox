@@ -1,5 +1,5 @@
 var Strings = artifacts.require("./strings.sol");
-var LifeMesh = artifacts.require("./lifemesh.sol");
+var LifeMesh = artifacts.require("./LifeMesh.sol");
 var SimpleStorage = artifacts.require("./SimpleStorage.sol");
 
 module.exports = function(deployer) {

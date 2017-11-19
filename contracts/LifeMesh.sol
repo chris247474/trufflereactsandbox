@@ -1,6 +1,5 @@
 pragma solidity ^0.4.11;
 
-//import "github.com/Arachnid/solidity-stringutils/strings.sol";
 import "./strings.sol";
 
 contract LifeMesh {
