@@ -36,8 +36,8 @@ class App extends Component {
       // Instantiate contract once web3 provided.
       this.instantiateContract()
     })
-    .catch(() => {
-      console.log('Error finding web3.')
+    .catch(function(err){
+      console.log(err+' - Error finding web3.')
     })
   }
 
@@ -56,12 +56,12 @@ class App extends Component {
     lmdb.setProvider(this.state.web3.currentProvider)
 
     //instantiate uport Connect object - probably need to modularize this
-    var uportconnect = window.uportconnect
+    /*var uportconnect = window.uportconnect
     const uport = new Connect('LifeMesh', {
       clientId: '2oq3fdbGXYkWmotZ43TPksn62wK9NmtJYkE',
       network: 'rinkeby or ropsten or kovan',
       signer: SimpleSigner('d09a3c03b60a6a922f27352ffbcac797098cb2ae874f1e6811c3d9d1a9dfcf99')
-    })
+    })*/
 
     // Declaring this for later so we can chain functions on SimpleStorage.
     var simpleStorageInstance
@@ -73,17 +73,19 @@ class App extends Component {
           console.log(error);
       }
 
-      /*lmdb.deployed().then((instance) => {
+      lmdb.deployed().then((instance) => {
         console.log("lifemesh smart contract deployed")
         lmDBInstance = instance
 
-        return lmDBInstance.createRecipient("w4w", "Manila", {from: accounts[0]})
+        alert("lifemesh smart contract deployed")
+
+        /*return lmDBInstance.createRecipient("w4w", "Manila", {from: accounts[0]})
         .then((result) => {
           console.log("result is "+result)
           return this.setState({ storageValue: result })
-        })
+        })*/
 
-      })*/
+      })
     })
   }
 
