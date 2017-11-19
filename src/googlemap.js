@@ -1,66 +1,52 @@
 import React, { Component } from 'react'
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-import Card from 'material-ui/Card'
-import CardHeader from 'material-ui/Card/CardHeader'
-import CardMedia from 'material-ui/Card/CardMedia'
+import { Card, CardText, CardActions, CardTitle, CardHeader, CardMedia } from 'material-ui/Card';
 import styled, { injectGlobal } from 'styled-components'
+import DataTable from './DataTable'
+//import GridTile from 'material-ui/GridList/GridTile';
+import Grid from 'react-bootstrap/lib/Grid';
+import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
 
-//cant export this properly for some reason
-const MapCardContents = ({ title, node, history }) => (
-    <div>
-        <Card 
-            children={
-                <div>
-                    <Map google={this.props.google} zoom={14}>
-                        <Marker onClick={this.onMarkerClick}
-                                name={'Current location'} />
-                        <InfoWindow onClose={this.onInfoWindowClose}>
-                            <div>
-                            </div>
-                        </InfoWindow>
-                    </Map>
-                    <center>
-                        <CardHeader 
-                            title={
-                                <Card children={
-                                    <div>
-                                        <H2>{title}</H2>
-                                        {node}
-                                    </div>
-                                } />
-                            }
-                        />
-                    </center>
-                </div>
-            }
-        />
-
-    </div>
-)   
+//cant export this properly - probably something to do w render() of MapContainer
+//const MapCardContents = ({ title, node, history }) => ()   
 
 export class MapContainer extends Component {
     render() {
         let height = window.screen.availHeight* 0.5;
-        let width = window.screen.availWidth* 0.9;
+        let width = window.screen.availWidth* 0.6;
         let margin = window.screen.availWidth* 0.2;
         return (
-            <center>
-                <Card 
-                    style={{width:'90%', height:height}}
-                    >
-                    <Map style={{width:'90%'}}
-                        google={this.props.google} zoom={14}>
-                        <Marker onClick={this.onMarkerClick}
-                                name={'Current location'} />
-                        <InfoWindow onClose={this.onInfoWindowClose}>
-                            <div>
-                            </div>
-                        </InfoWindow>
-                    </Map>
-                    
-                </Card>
-            </center>
-
+            <div>
+                <Grid>
+                    <Row className="show-grid">
+                        <Col xs={12} md={8} >
+                            <Card 
+                                style={{width:width, height:height}}
+                                >
+                                <Map style={{width:width}}
+                                    google={this.props.google} zoom={14}>
+                                    <Marker onClick={this.onMarkerClick}
+                                            name={'Current location'} />
+                                    <InfoWindow onClose={this.onInfoWindowClose}>
+                                        <div>
+                                        </div>
+                                    </InfoWindow>
+                                </Map>
+                            </Card>
+                        </Col>
+                        <Col xs={6} md={4} >
+                            <Card //style={{width:'30%', height:height}}
+                                children={
+                                    <div>
+                                        <DataTable />
+                                    </div>
+                                }
+                            />
+                        </Col>
+                    </Row>
+                </Grid>
+            </div>
         );
     }
 }

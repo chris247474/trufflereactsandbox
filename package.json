@@ -53,6 +53,7 @@
     "dotenv": "^2.0.0",
     "google-maps-react": "^1.1.2",
     "material-ui": "^0.19.4",
+    "material-ui-datatables": "^0.18.2",
     "react": "^15.4.2",
     "react-bootstrap": "^0.31.5",
     "react-dom": "^15.4.2",

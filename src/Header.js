@@ -45,7 +45,7 @@ const Header = () => (//needs proper navbar styling
                         <NavBarItem {...props} title="Overview" 
                         pagedest='googlemap'/>} />
                     <Route path="/" render={(props) => 
-                        <NavBarItem {...props} title="   Need Help        " 
+                        <NavBarItem {...props} title="   Need Help   " 
                         pagedest='NewHelpPage'/>} />
                     <Route path="/" render={(props) => 
                         <NavBarItem {...props} title="   Want to Help   " 

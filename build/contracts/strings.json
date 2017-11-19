@@ -853,6 +853,13 @@
                             "isSlot": false,
                             "src": "2894:4:1",
                             "valueSize": 1
+                          },
+                          "ptr": {
+                            "declaration": 1861,
+                            "isOffset": false,
+                            "isSlot": false,
+                            "src": "2883:3:1",
+                            "valueSize": 1
                           }
                         },
                         {
@@ -861,6 +868,13 @@
                             "isOffset": false,
                             "isSlot": false,
                             "src": "2883:3:1",
+                            "valueSize": 1
+                          },
+                          "self": {
+                            "declaration": 1855,
+                            "isOffset": false,
+                            "isSlot": false,
+                            "src": "2894:4:1",
                             "valueSize": 1
                           }
                         }
@@ -3450,6 +3464,13 @@
                             "isSlot": false,
                             "src": "5199:3:1",
                             "valueSize": 1
+                          },
+                          "retptr": {
+                            "declaration": 2036,
+                            "isOffset": false,
+                            "isSlot": false,
+                            "src": "5185:6:1",
+                            "valueSize": 1
                           }
                         },
                         {
@@ -3458,6 +3479,13 @@
                             "isOffset": false,
                             "isSlot": false,
                             "src": "5185:6:1",
+                            "valueSize": 1
+                          },
+                          "ret": {
+                            "declaration": 2028,
+                            "isOffset": false,
+                            "isSlot": false,
+                            "src": "5199:3:1",
                             "valueSize": 1
                           }
                         }
@@ -4099,10 +4127,10 @@
                               "externalReferences": [
                                 {
                                   "ptr": {
-                                    "declaration": 2098,
+                                    "declaration": 2057,
                                     "isOffset": false,
                                     "isSlot": false,
-                                    "src": "5974:3:2",
+                                    "src": "5974:3:1",
                                     "valueSize": 1
                                   },
                                   "b": {
@@ -4115,10 +4143,10 @@
                                 },
                                 {
                                   "b": {
-                                    "declaration": 2121,
+                                    "declaration": 2080,
                                     "isOffset": false,
                                     "isSlot": false,
-                                    "src": "5959:1:2",
+                                    "src": "5959:1:1",
                                     "valueSize": 1
                                   },
                                   "ptr": {
@@ -5723,6 +5751,13 @@
                                     "isSlot": false,
                                     "src": "7468:7:1",
                                     "valueSize": 1
+                                  },
+                                  "a": {
+                                    "declaration": 2196,
+                                    "isOffset": false,
+                                    "isSlot": false,
+                                    "src": "7457:1:1",
+                                    "valueSize": 1
                                   }
                                 },
                                 {
@@ -5731,6 +5766,13 @@
                                     "isOffset": false,
                                     "isSlot": false,
                                     "src": "7457:1:1",
+                                    "valueSize": 1
+                                  },
+                                  "b": {
+                                    "declaration": 2199,
+                                    "isOffset": false,
+                                    "isSlot": false,
+                                    "src": "7489:1:1",
                                     "valueSize": 1
                                   }
                                 },
@@ -5741,6 +5783,13 @@
                                     "isSlot": false,
                                     "src": "7500:8:1",
                                     "valueSize": 1
+                                  },
+                                  "selfptr": {
+                                    "declaration": 2176,
+                                    "isOffset": false,
+                                    "isSlot": false,
+                                    "src": "7468:7:1",
+                                    "valueSize": 1
                                   }
                                 },
                                 {
@@ -5749,6 +5798,13 @@
                                     "isOffset": false,
                                     "isSlot": false,
                                     "src": "7489:1:1",
+                                    "valueSize": 1
+                                  },
+                                  "otherptr": {
+                                    "declaration": 2180,
+                                    "isOffset": false,
+                                    "isSlot": false,
+                                    "src": "7500:8:1",
                                     "valueSize": 1
                                   }
                                 }
@@ -7434,6 +7490,13 @@
                             "isSlot": false,
                             "src": "8919:4:1",
                             "valueSize": 1
+                          },
+                          "b": {
+                            "declaration": 2316,
+                            "isOffset": false,
+                            "isSlot": false,
+                            "src": "8890:1:1",
+                            "valueSize": 1
                           }
                         },
                         {
@@ -7442,6 +7505,13 @@
                             "isOffset": false,
                             "isSlot": false,
                             "src": "8890:1:1",
+                            "valueSize": 1
+                          },
+                          "self": {
+                            "declaration": 2284,
+                            "isOffset": false,
+                            "isSlot": false,
+                            "src": "8919:4:1",
                             "valueSize": 1
                           }
                         }
@@ -10795,7 +10865,7 @@
                             "declaration": 2561,
                             "isOffset": false,
                             "isSlot": false,
-                            "src": "11267:4:1",
+                            "src": "11285:4:1",
                             "valueSize": 1
                           }
                         },
@@ -11268,10 +11338,10 @@
                         },
                         {
                           "self": {
-                            "declaration": 2611,
+                            "declaration": 2570,
                             "isOffset": false,
                             "isSlot": false,
-                            "src": "11885:4:2",
+                            "src": "11885:4:1",
                             "valueSize": 1
                           },
                           "needle": {
@@ -11284,10 +11354,10 @@
                         },
                         {
                           "needle": {
-                            "declaration": 2613,
+                            "declaration": 2572,
                             "isOffset": false,
                             "isSlot": false,
-                            "src": "11933:6:2",
+                            "src": "11933:6:1",
                             "valueSize": 1
                           },
                           "equal": {
@@ -11300,10 +11370,10 @@
                         },
                         {
                           "equal": {
-                            "declaration": 2637,
+                            "declaration": 2596,
                             "isOffset": false,
                             "isSlot": false,
-                            "src": "11956:5:2",
+                            "src": "11956:5:1",
                             "valueSize": 1
                           },
                           "self": {
@@ -12617,7 +12687,7 @@
                             "declaration": 2656,
                             "isOffset": false,
                             "isSlot": false,
-                            "src": "13556:6:1",
+                            "src": "13513:6:1",
                             "valueSize": 1
                           }
                         },
@@ -13857,7 +13927,7 @@
                                             "declaration": 2751,
                                             "isOffset": false,
                                             "isSlot": false,
-                                            "src": "15141:7:1",
+                                            "src": "15198:7:1",
                                             "valueSize": 1
                                           }
                                         },
@@ -14026,7 +14096,7 @@
                                             "declaration": 2761,
                                             "isOffset": false,
                                             "isSlot": false,
-                                            "src": "15396:3:1",
+                                            "src": "15365:3:1",
                                             "valueSize": 1
                                           }
                                         }
@@ -15090,7 +15160,7 @@
                                             "declaration": 2827,
                                             "isOffset": false,
                                             "isSlot": false,
-                                            "src": "16679:9:1",
+                                            "src": "16550:9:1",
                                             "valueSize": 1
                                           }
                                         },
@@ -15108,7 +15178,7 @@
                                             "declaration": 2835,
                                             "isOffset": false,
                                             "isSlot": false,
-                                            "src": "16753:3:1",
+                                            "src": "16884:3:1",
                                             "valueSize": 1
                                           }
                                         },
@@ -15165,7 +15235,7 @@
                                             "declaration": 2835,
                                             "isOffset": false,
                                             "isSlot": false,
-                                            "src": "16849:3:1",
+                                            "src": "16795:3:1",
                                             "valueSize": 1
                                           }
                                         },
@@ -15174,7 +15244,7 @@
                                             "declaration": 2825,
                                             "isOffset": false,
                                             "isSlot": false,
-                                            "src": "16891:7:1",
+                                            "src": "16858:7:1",
                                             "valueSize": 1
                                           }
                                         },
@@ -15183,7 +15253,7 @@
                                             "declaration": 2835,
                                             "isOffset": false,
                                             "isSlot": false,
-                                            "src": "16884:3:1",
+                                            "src": "16963:3:1",
                                             "valueSize": 1
                                           }
                                         },
@@ -15210,7 +15280,7 @@
                                             "declaration": 2835,
                                             "isOffset": false,
                                             "isSlot": false,
-                                            "src": "16963:3:1",
+                                            "src": "16849:3:1",
                                             "valueSize": 1
                                           }
                                         }
@@ -22957,8 +23027,18 @@
       "events": {},
       "links": {},
       "address": "0xcfeb869f69431e42cdb54a4f4f105c19c080a601"
+    },
+    "1511069448322": {
+      "events": {},
+      "links": {},
+      "address": "0x59d3631c86bbe35ef041872d502f218a39fba150"
+    },
+    "1511071525729": {
+      "events": {},
+      "links": {},
+      "address": "0xcfeb869f69431e42cdb54a4f4f105c19c080a601"
     }
   },
   "schemaVersion": "1.0.1",
-  "updatedAt": "2017-11-19T04:37:26.779Z"
+  "updatedAt": "2017-11-19T06:15:51.032Z"
 }

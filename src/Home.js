@@ -2,9 +2,12 @@ import React from 'react'
 import { Button } from 'react-bootstrap';
 import styled, { injectGlobal } from 'styled-components'
 import { Switch, Route } from 'react-router-dom'
+import DataTable from './DataTable'
 import GoogleApiWrapper from './googlemap'
+
 import StepButton from 'material-ui/RaisedButton';
 import CardHeader from 'material-ui/Card/CardHeader';
+
 
 const ButtonNavigate = ({ title, pagedest, history }) => (
     <StepButton onClick={() => history.push(pagedest)}>
@@ -24,16 +27,12 @@ const ButtonHelpGroup = () => (
 )    
 
 const Home = () => (
-  <div>
     <center>
         <H2>Help where it's needed</H2>
-        <ButtonHelpGroup />
-   
-    
         <br />
+        <ButtonHelpGroup />
         <GoogleApiWrapper />
     </center>
-  </div>
 )
 
 //need to move this to external file
