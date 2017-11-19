@@ -6,6 +6,8 @@ import Header from './Header'
 import Main from './Main'
 import BottomNav from './BottomNav'
 
+import { Connect, SimpleSigner } from 'uport-connect'
+
 import './css/oswald.css'
 import './css/open-sans.css'
 import './css/pure-min.css'
@@ -52,6 +54,14 @@ class App extends Component {
     simpleStorage.setProvider(this.state.web3.currentProvider)
     const lmdb = contract(lmDB)
     lmdb.setProvider(this.state.web3.currentProvider)
+
+    //instantiate uport Connect object - probably need to modularize this
+    var uportconnect = window.uportconnect
+    const uport = new Connect('LifeMesh', {
+      clientId: '2oq3fdbGXYkWmotZ43TPksn62wK9NmtJYkE',
+      network: 'rinkeby or ropsten or kovan',
+      signer: SimpleSigner('d09a3c03b60a6a922f27352ffbcac797098cb2ae874f1e6811c3d9d1a9dfcf99')
+    })
 
     // Declaring this for later so we can chain functions on SimpleStorage.
     var simpleStorageInstance

@@ -59,7 +59,8 @@
     "react-router-dom": "^4.2.2",
     "react-toolbox": "^2.0.0-beta.12",
     "react-typeform": "^0.1.1",
-    "styled-components": "^2.2.3"
+    "styled-components": "^2.2.3",
+    "uport-connect": "^0.7.0"
   },
   "scripts": {
     "start": "node scripts/start.js",
