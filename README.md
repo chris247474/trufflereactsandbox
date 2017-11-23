@@ -21,3 +21,9 @@ Env Notes:
 
  Resources:
  - routing based on https://medium.com/@pshrmn/a-simple-react-router-v4-tutorial-7f23ff27adf, https://codesandbox.io/s/21pm1lky7r 
+
+ - uport
+ https://developer.uport.me/guides.html#install-the-library/sdk
+ https://github.com/uport-project/uport-js
+ https://hackmd.io/s/HyCr_66_b
+ 

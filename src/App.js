@@ -5,7 +5,8 @@ import getWeb3 from './utils/getWeb3'
 import Header from './Header'
 import Main from './Main'
 import BottomNav from './BottomNav'
-import uport from './uport'
+import { connect, requestCredentials } from './uport'
+//var connect = require('./uport.js').connect;
 
 import './css/oswald.css'
 import './css/open-sans.css'
@@ -76,6 +77,8 @@ class App extends Component {
           return this.setState({ storageValue: result })
         })*/
 
+      }).then(()=> {
+        connect.apply()//need to figure out how to use promises here
       })
     })
   }
