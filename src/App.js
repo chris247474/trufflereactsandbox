@@ -5,7 +5,7 @@ import getWeb3 from './utils/getWeb3'
 import Header from './Header'
 import Main from './Main'
 import BottomNav from './BottomNav'
-import { connect, requestCredentials } from './uport'
+import { uPortConnect, requestCredentials } from './uport'
 //var connect = require('./uport.js').connect;
 
 import './css/oswald.css'
@@ -78,7 +78,7 @@ class App extends Component {
         })*/
 
       }).then(()=> {
-        connect.apply()//need to figure out how to use promises here
+        //connect.apply()//need to figure out how to use promises here
       })
     })
   }

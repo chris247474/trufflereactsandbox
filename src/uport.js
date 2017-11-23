@@ -8,7 +8,7 @@ const credentials = new Credentials({
   networks: networks
 })*/
 
-export function connect(){
+export function uPortConnect(){
   var uport = new Connect('Lifemesh_pre-alpha', {
     clientId: '2ouHncTQbbwk3Lo1trwR9TTxgKgJWmotJCq',
     network: 'rinkeby',
@@ -72,4 +72,4 @@ export function requestCredentials(uport){
       })
 }*/
 
-export default connect
+export default uPortConnect

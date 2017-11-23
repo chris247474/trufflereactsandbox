@@ -1,22 +1,29 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Button } from 'react-bootstrap';
 import styled, { injectGlobal } from 'styled-components'
 import { Switch, Route } from 'react-router-dom'
 import GoogleApiWrapper from './googlemap'
+import uPortConnect from './uport'
 
-const WantToHelpOverview = () => (
-    <div>
-      <center>
-        <Container>
-            <Header>
-                <H2>Who should we help?</H2>
-            </Header>
-            
-        </Container>
-        <GoogleApiWrapper />
-      </center>
-    </div>
-  )
+export class WantToHelpOverview extends Component{
+  render(){
+    uPortConnect.apply()
+    return(
+      <div>
+        <center>
+          <Container>
+              <Header>
+                  <H2>Who should we help?</H2>
+              </Header>
+              
+          </Container>
+          <GoogleApiWrapper />
+        </center>
+      </div>
+    )
+  }
+}
+
 
 //need to move this to external file
 const Container = styled.div`
