@@ -50,7 +50,7 @@ const Header = () => (//needs proper navbar styling
                     <Route path="/" render={(props) => 
                         <NavBarItem {...props} title="   Want to Help   " 
                         pagedest='NewWantPage'/>} />
-                    
+                
                 </div>
             }
         />
