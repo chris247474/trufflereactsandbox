@@ -29,6 +29,7 @@ const NewWantPage = () => (
             Likely Donation Areas
         </ItemLabel>
         <InputText />
+        <br /><br />
         <Route path="/" render={(props) =>
             <ButtonNavigate {...props} //title="Start Helping" 
                 pagedest='WantToHelpOverview'/>} />
