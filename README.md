@@ -19,6 +19,11 @@ Env Notes:
  - deploy lifemesh.sol to testnet
  - build out first page (accdng to Balsamiq) w proper layouts, etc
 
+ npm run start error:
+ - if you get an error that has something to do with readline module not being found in node-wit.interactive.js, then;
+    - cd to this root/node_modules/node-wit
+    - npm install readline
+
  Resources:
  - routing based on https://medium.com/@pshrmn/a-simple-react-router-v4-tutorial-7f23ff27adf, https://codesandbox.io/s/21pm1lky7r 
 
@@ -26,4 +31,5 @@ Env Notes:
  https://developer.uport.me/guides.html#install-the-library/sdk
  https://github.com/uport-project/uport-js
  https://hackmd.io/s/HyCr_66_b
+
  

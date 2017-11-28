@@ -20,6 +20,7 @@ function submit(){
 
 const NewHelpPage = () => (
   <div>
+    <br /><br /><br />
     <Container>
         <Header>
             <H2>We Need Help</H2>
@@ -158,7 +159,7 @@ color: ${props => props.active ? props.activeColor || 'red' : '#c7c7c7'};
 injectGlobal`
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 body {
-  background-color: whitesmoke;
+  background-color: white;
   font-family: 'Roboto', sans-serif;
 }
 `

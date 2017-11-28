@@ -6,6 +6,7 @@ import Header from './Header'
 import Main from './Main'
 import BottomNav from './BottomNav'
 import { uPortConnect, requestCredentials } from './uport'
+//import match from './Matcher'
 //var connect = require('./uport.js').connect;
 
 import './css/oswald.css'
@@ -78,7 +79,7 @@ class App extends Component {
         })*/
 
       }).then(()=> {
-        //connect.apply()//need to figure out how to use promises here
+        //match.apply(null, null)
       })
     })
   }
@@ -87,7 +88,7 @@ class App extends Component {
     return(
       <div>
         <Header />
-        <br /><br /><br /><br />
+        <br />
         <Main />
       </div>
     );

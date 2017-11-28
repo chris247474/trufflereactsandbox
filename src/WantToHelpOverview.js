@@ -5,19 +5,67 @@ import { Switch, Route } from 'react-router-dom'
 import GoogleApiWrapper from './googlemap'
 import uPortConnect from './uport'
 
+import Grid from 'react-bootstrap/lib/Grid';
+import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
+import { Card, CardText, CardActions, CardTitle, CardHeader, CardMedia } from 'material-ui/Card';
+import DataTable from './DataTable'
+
+//replace w dynamic data from sql server
+const TABLE_COLUMNS = [
+  {
+    key: 'name',
+    label: 'Type',
+  }, {
+    key: 'desc',
+    label: 'Description',
+  },
+];
+
+const TABLE_DATA = [
+  {
+    name: 'Need',
+    desc: '5000 bottles of caviar'
+  }, {
+    name: 'Need',
+    desc: '500 Ferraris'
+    
+  },
+  
+];
+
 export class WantToHelpOverview extends Component{
   render(){
     uPortConnect.apply()
     return(
       <div>
         <center>
-          <Container>
-              <Header>
-                  <H2>Who should we help?</H2>
-              </Header>
-              
-          </Container>
-          <GoogleApiWrapper />
+          <GoogleApiWrapper hoverBodyUpper={
+              <Grid>
+                  <Row className="show-grid">
+                      <Col xs={6} md={4} />
+                      <Col xs={6} md={4}>
+                        <H2>Who should we help?</H2>
+                      </Col>
+                      <Col xs={6} md={4} >
+                          <div>
+                            
+                            <Card
+                                children={
+                                    <div>
+                                        <DataTable 
+                                            columnData={TABLE_COLUMNS}
+                                            rowData={TABLE_DATA}
+                                            />
+                                    </div>
+                                }
+                            />
+                          </div>
+                      </Col>
+                      
+                  </Row>
+              </Grid>
+          }/>
         </center>
       </div>
     )
@@ -145,7 +193,7 @@ color: ${props => props.active ? props.activeColor || 'red' : '#c7c7c7'};
 injectGlobal`
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 body {
-  background-color: whitesmoke;
+  background-color: white;
   font-family: 'Roboto', sans-serif;
 }
 `

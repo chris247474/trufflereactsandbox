@@ -4,10 +4,14 @@ import styled, { injectGlobal } from 'styled-components'
 import { Switch, Route } from 'react-router-dom'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
 
+import Grid from 'react-bootstrap/lib/Grid';
+import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
+import { Card, CardText, CardActions, CardTitle, CardHeader, CardMedia } from 'material-ui/Card';
+
 //move to proper helper file
 const ButtonNavigate = ({ title, pagedest, history }) => (
     <FloatingActionButton onClick={() => history.push(pagedest)} 
-        //style={{width: '40px', height: '40px'}}
         >
         {title}
     </FloatingActionButton>
@@ -19,10 +23,13 @@ function submit(){
 
 const NewWantPage = () => (
   <div>
+    <br /><br /><br />
     <Container>
         <Header>
-            <H2>Let's Help Someone Out</H2>
-        </Header><br />
+            <H2>
+                Who should we Help?
+            </H2>
+        </Header>
         <ItemLabel>What will you be able to donate?</ItemLabel>
         <InputText /><br /><br />
         <ItemLabel>
@@ -31,11 +38,29 @@ const NewWantPage = () => (
         <InputText />
         <br /><br />
         <Route path="/" render={(props) =>
-            <ButtonNavigate {...props} //title="Start Helping" 
-                pagedest='WantToHelpOverview'/>} />
+                    <ButtonNavigate alight="right" {...props}
+                        pagedest='WantToHelpOverview'/>} />
     </Container>
+   
+    
   </div>
 )
+
+/*
+ <Grid>
+        <Row class="show-grid">
+            <Col md={4} />
+            <Col md={4} >
+                
+            </Col>
+            <Col md={4}>
+                <Route path="/" render={(props) =>
+                    <ButtonNavigate alight="right" {...props}
+                        pagedest='WantToHelpOverview'/>} />
+            </Col>
+        </Row>
+    </Grid>
+*/
 
 //need to move this to external file
 const Container = styled.div`
@@ -157,7 +182,7 @@ color: ${props => props.active ? props.activeColor || 'red' : '#c7c7c7'};
 injectGlobal`
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 body {
-  background-color: whitesmoke;
+  background-color: white;
   font-family: 'Roboto', sans-serif;
 }
 `

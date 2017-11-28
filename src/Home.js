@@ -5,9 +5,34 @@ import { Switch, Route } from 'react-router-dom'
 import DataTable from './DataTable'
 import GoogleApiWrapper from './googlemap'
 
-import StepButton from 'material-ui/RaisedButton';
-import CardHeader from 'material-ui/Card/CardHeader';
+import Grid from 'react-bootstrap/lib/Grid';
+import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
+import { Card, CardText, CardActions, CardTitle, CardHeader, CardMedia } from 'material-ui/Card';
 
+import StepButton from 'material-ui/RaisedButton';
+
+const TABLE_COLUMNS = [
+    {
+      key: 'name',
+      label: 'Type',
+    }, {
+      key: 'desc',
+      label: 'Description',
+    },
+  ];
+  
+  const TABLE_DATA = [
+    {
+      name: 'Need',
+      desc: '5000 bottles of caviar'
+    }, {
+      name: 'Need',
+      desc: '500 Ferraris'
+      
+    },
+    
+  ];
 
 const ButtonNavigate = ({ title, pagedest, history }) => (
     <StepButton onClick={() => history.push(pagedest)}>
@@ -17,23 +42,59 @@ const ButtonNavigate = ({ title, pagedest, history }) => (
 
 const ButtonHelpGroup = () => (
     <div>
-        <Route path="/" render={(props) => 
-            <ButtonNavigate {...props} title="I need help" 
-            pagedest='NewHelpPage'/>} />
-        <Route path="/" render={(props) => 
-            <ButtonNavigate {...props} title="I want to help" 
-            pagedest='NewWantPage'/>} />
+        <Grid>
+            <Row className="show-grid">
+                <Col xs={3} md={2} />
+                <Col xs={6} md={4}>
+                    <Route path="/" render={(props) => 
+                        <ButtonNavigate {...props} title="I need help" 
+                        pagedest='NewHelpPage'/>} />
+                </Col>
+                <Col xs={6} md={4}>
+                    <Route path="/" render={(props) => 
+                        <ButtonNavigate {...props} title="I want to help" 
+                        pagedest='NewWantPage'/>} />
+                </Col>
+            </Row>
+        </Grid>
     </div>
 )    
 
 const Home = () => (
     <center>
-        <H2>Help where it's needed</H2>
-        <br />
-        <ButtonHelpGroup />
-        <GoogleApiWrapper />
+        <GoogleApiWrapper hoverBodyUpper={
+            <Grid>
+                <Row className="show-grid">
+                    <Col xs={6} md={4} />
+                    <Col xs={6} md={4} >
+                        <div>
+                            <H2>Help where it's needed</H2>
+                            <br />
+                            <ButtonHelpGroup />
+                        </div>
+                    </Col>
+                    
+                </Row>
+            </Grid>
+            
+        }/>
     </center>
 )
+
+/*
+<Col xsHidden md={4}>
+                        <Card
+                            children={
+                                <div>
+                                    <DataTable 
+                                        columnData={TABLE_COLUMNS}
+                                        rowData={TABLE_DATA}
+                                        />
+                                </div>
+                            }
+                        />
+                    </Col>
+*/
 
 //need to move this to external file
 const WellStyles = { maxWidth: 1000, margin: '0 auto 10px' };
@@ -157,9 +218,9 @@ color: ${props => props.active ? props.activeColor || 'red' : '#c7c7c7'};
 injectGlobal`
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 body {
-  background-color: whitesmoke;
+  background-color: white;
   font-family: 'Roboto', sans-serif;
 }
 `
-
+//whitesmoke
 export default Home

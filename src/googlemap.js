@@ -8,23 +8,36 @@ import Grid from 'react-bootstrap/lib/Grid';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 
-//cant export this properly - probably something to do w render() of MapContainer
-//const MapCardContents = ({ title, node, history }) => ()   
+import StepButton from 'material-ui/RaisedButton';
+import { Switch, Route } from 'react-router-dom'
 
 export class MapContainer extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            showingInfoWindow: true,
+            activeMarker: {},
+            selectedPlace: {},
+        }
+        
+        // binding this to event-handler functions
+        //this.onMarkerClick = this.onMarkerClick.bind(this);
+        //this.onMapClicked = this.onMapClicked.bind(this);
+    }
+
     render() {
-        let height = window.screen.availHeight* 0.5;
-        let width = window.screen.availWidth* 0.6;
+        let height = window.screen.availHeight* 1.0;
+        let width = window.screen.availWidth* 1;
         let margin = window.screen.availWidth* 0.2;
         return (
             <div>
                 <Grid>
                     <Row className="show-grid">
-                        <Col xs={12} md={8} >
+                        <Col lg={20} >
                             <Card 
-                                style={{width:width, height:height}}
+                                style={{height:height}}
                                 >
-                                <Map style={{width:width}}
+                                <Map style={{width:width, height:height}}
                                     google={this.props.google} zoom={14}>
                                     <Marker onClick={this.onMarkerClick}
                                             name={'Current location'} />
@@ -33,23 +46,32 @@ export class MapContainer extends Component {
                                         </div>
                                     </InfoWindow>
                                 </Map>
+                                <CardMedia
+                                        children={this.props.hoverBodyUpper}
+                                />
                             </Card>
                         </Col>
-                        <Col xs={6} md={4} >
-                            <Card //style={{width:'30%', height:height}}
-                                children={
-                                    <div>
-                                        <DataTable />
-                                    </div>
-                                }
-                            />
-                        </Col>
+                        
                     </Row>
                 </Grid>
             </div>
         );
     }
 }
+
+/*                      <Col xs={6} md={4} >
+                            <Card
+                                children={
+                                    <div>
+                                        <DataTable 
+                                            columnData={TABLE_COLUMNS}
+                                            rowData={TABLE_DATA}
+                                            />
+                                    </div>
+                                }
+                            />
+                        </Col> */
+//<CardTitle title="Overlay title" subtitle="Overlay subtitle" />
 
 //need to move this to external file
 const WellStyles = { maxWidth: 1000, margin: '0 auto 10px' };
@@ -173,7 +195,7 @@ color: ${props => props.active ? props.activeColor || 'red' : '#c7c7c7'};
 injectGlobal`
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 body {
-  background-color: whitesmoke;
+  background-color: white;
   font-family: 'Roboto', sans-serif;
 }
 `
