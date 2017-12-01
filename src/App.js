@@ -7,7 +7,7 @@ import Main from './Main'
 import BottomNav from './BottomNav'
 import { uPortConnect, requestCredentials } from './uport'
 //import match from './Matcher'
-//var connect = require('./uport.js').connect;
+//import client from './MongoHelper'
 
 import './css/oswald.css'
 import './css/open-sans.css'

@@ -32,4 +32,8 @@ Env Notes:
  https://github.com/uport-project/uport-js
  https://hackmd.io/s/HyCr_66_b
 
+
+- mongodb server setup
+https://treehouse.github.io/installation-guides/mac/mongo-mac.html
+
  
