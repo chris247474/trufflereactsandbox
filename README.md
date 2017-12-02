@@ -28,6 +28,12 @@ Web (at root):
     - cd to this root/node_modules/node-wit
     - npm install readline
 
+Mongoose - MongoDB server GET POST API routes:
+- localhost:5000/api/users - user database (providers and recipients)
+- localhost:5000/api/tx - tx database (txs betwween providers and recipients)
+- localhost:5000/api/material - material goods db
+- used http://www.getpostman.com/ for easy get post testing
+
  Resources:
  - routing based on https://medium.com/@pshrmn/a-simple-react-router-v4-tutorial-7f23ff27adf, https://codesandbox.io/s/21pm1lky7r 
 
