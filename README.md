@@ -13,6 +13,10 @@ Env Notes:
 - compile
 - migrate
 
+Web (at root):
+- npm run start
+- $(npm bin)/nodemon server.js (for preconfigured mongodb api server)
+
  Todo:
  - figure out our css theme
  - standard testrpc scripts like we have w our hackathon proto
@@ -32,8 +36,8 @@ Env Notes:
  https://github.com/uport-project/uport-js
  https://hackmd.io/s/HyCr_66_b
 
+- mongodb server quick setup w mlab
+https://github.com/bryantheastronaut/mernCommentBox
 
-- mongodb server setup
-https://treehouse.github.io/installation-guides/mac/mongo-mac.html
 
  
