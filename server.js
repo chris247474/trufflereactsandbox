@@ -70,8 +70,40 @@ user.save(function(err) {
 });
 });
 
+//Adding a route to a specific user based on the database ID
+router.route('/users/:user_id')
+//The put method gives us the chance to update our user based on the ID passed to the route
+  .put(function(req, res) {
+    User.findById(req.params.user_id, function(err, user) {
+      if (err)
+        res.send(err);
+      //setting the new field data to whatever was changed. If nothing was changed
+      // we will not alter the field.
+      (req.body.name) ? user.name = req.body.name : null;
+      (req.body.location) ? user.location = req.body.location : null;
+      (req.body.type) ? user.type = req.body.type : null;
+      //save comment
+      user.save(function(err) {
+        if (err)
+          res.send(err);
+        res.json({ message: 'User has been updated' });
+      });
+    });
+  })
+  //delete method for removing a user from our database
+  .delete(function(req, res) {
+    //selects the user by its ID, then removes it.
+    User.remove({ _id: req.params.user_id }, function(err, user) {
+      if (err)
+        res.send(err);
+      res.json({ message: 'User has been deleted' })
+    })
+  });
+
+
+  
 //adding the /tx route to our /api router
-router.route('/tx')
+router.route('/txs')
 //retrieve all tx from the database
 .get(function(req, res) {
     //looks at our Tx Schema
@@ -98,8 +130,41 @@ router.route('/tx')
     });
 });
 
-//adding the /tx route to our /api router
-router.route('/material')
+//Adding a route to a specific tx based on the database ID
+router.route('/txs/:tx_id')
+//The put method gives us the chance to update our comment based on the ID passed to the route
+  .put(function(req, res) {
+    Tx.findById(req.params.tx_id, function(err, tx) {
+      if (err)
+        res.send(err);
+      //setting the new field data to whatever was changed. If nothing was changed
+      // we will not alter the field.
+      (req.body.provider) ? tx.provider = req.body.provider : null;
+      (req.body.recipient) ? tx.recipient = req.body.recipient : null;
+      (req.body.originLoc) ? tx.originLoc = req.body.originLoc : null;
+      (req.body.destLoc) ?tx.destLoc = req.body.destLoc : null;
+      //save comment
+      tx.save(function(err) {
+        if (err)
+          res.send(err);
+        res.json({ message: 'tx has been updated' });
+      });
+    });
+  })
+  //delete method for removing a comment from our database
+  .delete(function(req, res) {
+    //selects the comment by its ID, then removes it.
+    Tx.remove({ _id: req.params.tx_id }, function(err, tx) {
+      if (err)
+        res.send(err);
+      res.json({ message: 'Tx has been deleted' })
+    })
+  });
+
+
+
+//adding the /materials route to our /api router
+router.route('/materials')
 //retrieve all tx from the database
 .get(function(req, res) {
     //looks at our Tx Schema
@@ -126,6 +191,40 @@ router.route('/material')
         res.json({ message: 'New material successfully added!' });
     });
 });
+
+//Adding a route to a specific tx based on the database ID
+router.route('/materials/:material_id')
+//The put method gives us the chance to update our comment based on the ID passed to the route
+  .put(function(req, res) {
+    Material.findById(req.params.material_id, function(err, material) {
+      if (err)
+        res.send(err);
+      //setting the new field data to whatever was changed. If nothing was changed
+      // we will not alter the field.
+      (req.body.ownerid) ? material.ownerid = req.body.ownerid : null;
+      (req.body.ownername) ? material.ownername = req.body.ownername : null;
+      (req.body.materialType) ? material.materialType = req.body.materialType : null;
+      (req.body.quantity) ? material.quantity = req.body.quantity : null;
+      (req.body.size) ? material.size = req.body.size : null;
+      //save comment
+      material.save(function(err) {
+        if (err)
+          res.send(err);
+        res.json({ message: 'material has been updated' });
+      });
+    });
+  })
+  //delete method for removing a comment from our database
+  .delete(function(req, res) {
+    //selects the comment by its ID, then removes it.
+    Material.remove({ _id: req.params.material_id }, function(err, material) {
+      if (err)
+        res.send(err);
+      res.json({ message: 'material has been deleted' })
+    })
+  });
+
+
 
 //Use our router configuration when we call /api
 app.use('/api', router);
