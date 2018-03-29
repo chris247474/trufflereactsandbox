@@ -33,7 +33,7 @@ app.use(function(req, res, next) {
   res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
 
-  //and remove cacheing so we get the most recent comments
+  //and remove cacheing so we get the most recent data
   res.setHeader('Cache-Control', 'no-cache');
   next();
 });
@@ -47,7 +47,7 @@ router.get('/', function(req, res) {
 router.route('/users')
 //retrieve all users from the database
 .get(function(req, res) {
-//looks at our Comment Schema
+//looks at our Schema
 User.find(function(err, users) {
     if (err)
     res.send(err);
@@ -82,11 +82,11 @@ router.route('/users/:user_id')
       (req.body.name) ? user.name = req.body.name : null;
       (req.body.location) ? user.location = req.body.location : null;
       (req.body.type) ? user.type = req.body.type : null;
-      //save comment
+      //save user
       user.save(function(err) {
         if (err)
           res.send(err);
-        res.json({ message: 'User has been updated' });
+        res.json({ message: 'User'+user.name+' has been updated' });
       });
     });
   })
@@ -96,12 +96,12 @@ router.route('/users/:user_id')
     User.remove({ _id: req.params.user_id }, function(err, user) {
       if (err)
         res.send(err);
-      res.json({ message: 'User has been deleted' })
+      res.json({ message: 'User'+user.name+' has been deleted' })
     })
   });
 
 
-  
+
 //adding the /tx route to our /api router
 router.route('/txs')
 //retrieve all tx from the database
@@ -132,7 +132,7 @@ router.route('/txs')
 
 //Adding a route to a specific tx based on the database ID
 router.route('/txs/:tx_id')
-//The put method gives us the chance to update our comment based on the ID passed to the route
+//The put method gives us the chance to update our tx based on the ID passed to the route
   .put(function(req, res) {
     Tx.findById(req.params.tx_id, function(err, tx) {
       if (err)
@@ -143,7 +143,7 @@ router.route('/txs/:tx_id')
       (req.body.recipient) ? tx.recipient = req.body.recipient : null;
       (req.body.originLoc) ? tx.originLoc = req.body.originLoc : null;
       (req.body.destLoc) ?tx.destLoc = req.body.destLoc : null;
-      //save comment
+      //save tx
       tx.save(function(err) {
         if (err)
           res.send(err);
@@ -151,9 +151,9 @@ router.route('/txs/:tx_id')
       });
     });
   })
-  //delete method for removing a comment from our database
+  //delete method for removing a tx from our database
   .delete(function(req, res) {
-    //selects the comment by its ID, then removes it.
+    //selects the tx by its ID, then removes it.
     Tx.remove({ _id: req.params.tx_id }, function(err, tx) {
       if (err)
         res.send(err);
@@ -194,7 +194,7 @@ router.route('/materials')
 
 //Adding a route to a specific tx based on the database ID
 router.route('/materials/:material_id')
-//The put method gives us the chance to update our comment based on the ID passed to the route
+//The put method gives us the chance to update our material based on the ID passed to the route
   .put(function(req, res) {
     Material.findById(req.params.material_id, function(err, material) {
       if (err)
@@ -206,7 +206,7 @@ router.route('/materials/:material_id')
       (req.body.materialType) ? material.materialType = req.body.materialType : null;
       (req.body.quantity) ? material.quantity = req.body.quantity : null;
       (req.body.size) ? material.size = req.body.size : null;
-      //save comment
+      //save material
       material.save(function(err) {
         if (err)
           res.send(err);
@@ -214,9 +214,9 @@ router.route('/materials/:material_id')
       });
     });
   })
-  //delete method for removing a comment from our database
+  //delete method for removing a material from our database
   .delete(function(req, res) {
-    //selects the comment by its ID, then removes it.
+    //selects the material by its ID, then removes it.
     Material.remove({ _id: req.params.material_id }, function(err, material) {
       if (err)
         res.send(err);

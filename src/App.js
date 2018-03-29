@@ -6,6 +6,9 @@ import Header from './Header'
 import Main from './Main'
 import BottomNav from './BottomNav'
 import { uPortConnect, requestCredentials } from './uport'
+
+import { Drizzle, generateStore } from 'drizzle'
+
 //import match from './Matcher'
 //import client from './MongoHelper'
 
@@ -55,6 +58,17 @@ class App extends Component {
     simpleStorage.setProvider(this.state.web3.currentProvider)
     const lmdb = contract(lmDB)
     lmdb.setProvider(this.state.web3.currentProvider)
+
+    // drizzle setup
+    /*const options = {
+      contracts: [
+        SimpleStorage
+      ]
+    }
+    
+    const drizzleStore = generateStore(this.props.options)
+    const drizzle = new Drizzle(this.props.options, drizzleStore)*/
+    // drizzle setup
 
     // Declaring this for later so we can chain functions on SimpleStorage.
     var simpleStorageInstance

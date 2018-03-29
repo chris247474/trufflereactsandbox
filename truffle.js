@@ -1,14 +1,14 @@
 module.exports = {
   networks: {
     development: {
-      host: "testrpc.lifeme.sh",
-      port: 8545,
+      host: "127.0.0.1",
+      port: 7545,
       network_id: "*", // Match any network id
       gas: 4600000
     },
     local: {
-      host: "localhost",
-      port: 8545,
+      host: "127.0.0.1",
+      port: 7545,
       network_id: "*",
       gas: 4600000
     }

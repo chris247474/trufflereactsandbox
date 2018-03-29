@@ -9,9 +9,9 @@ Env Notes:
  - App.js has our "quickstart" layout w some sample css tinkering in the same file
 
  Truffle:
-- truffle develop (for truffle dev console)
-- compile
-- migrate
+- truffle develop (for truffle dev console) / just run Ganache desktop app
+- (truffle) compile
+- (truffle) migrate
 
 Web (at root):
 - npm run start
@@ -44,6 +44,12 @@ Mongoose - MongoDB server GET POST API routes:
 
 - mongodb server quick setup w mlab
 https://github.com/bryantheastronaut/mernCommentBox
+
+- additional truffle.js configs w infura
+http://truffleframework.com/tutorials/using-infura-custom-provider
+
+- could be useful for easy smart contract testing
+http://www.masonforest.com/blockchain/ethereum/2017/11/13/how-to-deploy-an-erc20-token-in-20-minutes.html
 
 
  
