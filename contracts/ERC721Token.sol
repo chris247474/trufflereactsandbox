@@ -1,8 +1,10 @@
 pragma solidity ^0.4.18;
 
+
 import "./ERC721.sol";
 import "./DeprecatedERC721.sol";
 import "./ERC721BasicToken.sol";
+import "./strings.sol";
 
 
 /**
@@ -10,8 +12,6 @@ import "./ERC721BasicToken.sol";
  * This implementation includes all the required and some optional functionality of the ERC721 standard
  * Moreover, it includes approve all functionality using operator terminology
  * @dev see https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md
- * LIFEMESH NOTES: 
- * SYNC IMPLEMENTATION WITH https://remix.ethereum.org/#optimize=false&version=soljson-v0.4.19+commit.c4cbbb05.js
  */
 contract ERC721Token is ERC721, ERC721BasicToken {
   // Token name
@@ -19,7 +19,7 @@ contract ERC721Token is ERC721, ERC721BasicToken {
 
     // Token symbol
     string internal symbol_;
-
+    
     // Mapping from owner to list of owned token IDs
     mapping (address => uint256[]) internal ownedTokens;
 
@@ -35,13 +35,7 @@ contract ERC721Token is ERC721, ERC721BasicToken {
     // Optional mapping for token URIs
     mapping(uint256 => string) internal tokenURIs;
 
-    /**
-    * @dev Constructor function
-    */
-    function ERC721Token(string _name, string _symbol) public {
-        name_ = _name;
-        symbol_ = _symbol;
-    }
+    
 
     /**
     * @dev Gets the token name
@@ -119,7 +113,7 @@ contract ERC721Token is ERC721, ERC721BasicToken {
         super.addTokenTo(_to, _tokenId);
         uint256 length = ownedTokens[_to].length;
         ownedTokens[_to].push(_tokenId);
-        ownedTokensIndex[_tokenId] = length;
+        ownedTokensIndex[_tokenId] = length;//why update length AFTER pushing _tokenId to owndedTokens[_to] array
     }
 
     /**
