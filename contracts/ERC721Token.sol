@@ -1,11 +1,10 @@
 pragma solidity ^0.4.18;
 
-
 import "./ERC721.sol";
 import "./DeprecatedERC721.sol";
 import "./ERC721BasicToken.sol";
 import "./strings.sol";
-
+import "./Utils.sol";
 
 /**
  * @title Full ERC721 Token
@@ -13,7 +12,7 @@ import "./strings.sol";
  * Moreover, it includes approve all functionality using operator terminology
  * @dev see https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md
  */
-contract ERC721Token is ERC721, ERC721BasicToken {
+contract ERC721Token is ERC721, ERC721BasicToken, Utils {
   // Token name
     string internal name_;
 
@@ -101,6 +100,8 @@ contract ERC721Token is ERC721, ERC721BasicToken {
     */
     function _setTokenURI(uint256 _tokenId, string _uri) internal {
         require(exists(_tokenId));
+        
+        //string memory strUri = bytes32ToString(_uri);
         tokenURIs[_tokenId] = _uri;
     }
 

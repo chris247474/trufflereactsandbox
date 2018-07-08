@@ -7,8 +7,8 @@ import "./ERC721Token.sol";
 contract TxController is ERC721Token {
     
     struct Tx {
-        address _providerOwner;
-        address _recipient;
+        string _providerOwner;
+        string _recipient;
         uint256 _tokenId;
         string proof;
         uint64 tokenPoints;
@@ -25,11 +25,14 @@ contract TxController is ERC721Token {
     }
     
     //datetime as string for soldAt param?
-    function createTx(address _providerOwner, address _recipient, uint256 _tokenId, string proof, uint64 tokenPoints, uint64 soldFor, uint64 soldAt) public {
-        _mint(_providerOwner, _tokenId);
+    function createTx(string _providerOwner, string _recipient, uint256 _tokenId, string proof, uint64 tokenPoints, uint64 soldFor, uint64 soldAt) public {
+        address providerOwnerStr = bytes32ToAddress(stringToBytes32(_providerOwner));
+        address recipientStr = bytes32ToAddress(stringToBytes32(_recipient));
         
-        ownerProviders[_tokenId] = _providerOwner;
-        recipients[_tokenId] = _recipient;
+        _mint(providerOwnerStr, _tokenId);
+        
+        ownerProviders[_tokenId] = providerOwnerStr;
+        recipients[_tokenId] = recipientStr;
         
         _setTokenURI(_tokenId, proof);
         setTokenPoints(_tokenId, tokenPoints);
@@ -44,18 +47,17 @@ contract TxController is ERC721Token {
         require(exists(_tokenId));
         return childTokenIds[_tokenId];
     }
-    function createChildForExistingTx(uint256 _tokenId, address _providerOwner, uint256 _childTokenId, address _recipient, string proof, uint64 tokenPoints, uint64 soldFor, uint64 soldAt) internal {
+    function createChildForExistingTx(uint256 _tokenId, string _providerOwner, uint256 _childTokenId, string _recipient, string proof, uint64 tokenPoints, uint64 soldFor, uint64 soldAt) internal {
         require(exists(_tokenId));
         
         createTx(_providerOwner, _recipient, _childTokenId, proof, tokenPoints, soldFor, soldAt);
         addParentToChild(_tokenId, _childTokenId);
         childTokenIds[_tokenId].push(_childTokenId);
     }
-    function createChildrenForExistingTx_SubdivideWithTokenPointsArray(uint256 _tokenId, Tx[] childrenTxs) public {
+    function createChildrenForExistingTx(uint256 _tokenId, Tx[] childrenTxs) public {
         require(exists(_tokenId));
         
-        //check if total points equals points of _tokenId
-        //what else?
+        //divide token points here or in webapp?
         
         for(uint256 c = 0;c < childrenTxs.length;c++){
             createTx(childrenTxs[c]._providerOwner, childrenTxs[c]._recipient, childrenTxs[c]._tokenId, childrenTxs[c].proof, childrenTxs[c].tokenPoints, childrenTxs[c].soldFor, childrenTxs[c].soldAt);
@@ -64,9 +66,7 @@ contract TxController is ERC721Token {
         }
     }
     function addChildToParent(uint256 _parentTokenId, uint256 _childTokenId) internal {
-        require(exists(_parentTokenId));
-        require(exists(_childTokenId));
-        
+        require(exists(_parentTokenId) && exists(_childTokenId));
         childTokenIds[_parentTokenId].push(_childTokenId);
     }
 
