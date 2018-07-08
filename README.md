@@ -1,6 +1,3 @@
-# lifemesh-ethereum
-
-LifeMesh blockchain app for Ethereum
 
 Env Notes:
  - Python 2.7 - latest 3+ version isnt supported by dependencies (at least on my machine). 
@@ -20,7 +17,7 @@ Web (at root):
  Todo:
  - figure out our css theme
  - standard testrpc scripts like we have w our hackathon proto
- - deploy lifemesh.sol to testnet
+ - deploy to testnet
  - build out first page (accdng to Balsamiq) w proper layouts, etc
 
  npm run start error:
