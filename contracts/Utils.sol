@@ -1,7 +1,7 @@
-pragma solidity ^0.4.18;
+pragma solidity ^0.4.24;
 
 contract Utils {
-    function stringToBytes32(string memory source) public  returns (bytes32 result) {
+    function stringToBytes32(string memory source) public pure returns (bytes32 result) {
         bytes memory tempEmptyStringTest = bytes(source);
         if (tempEmptyStringTest.length == 0) {
             return 0x0;
@@ -11,7 +11,7 @@ contract Utils {
             result := mload(add(source, 32))
         }
     }
-    function bytes32ToString(bytes32 x) public constant returns (string) {
+    function bytes32ToString(bytes32 x) public pure returns (string) {
         bytes memory bytesString = new bytes(32);
         uint charCount = 0;
         for (uint j = 0; j < 32; j++) {

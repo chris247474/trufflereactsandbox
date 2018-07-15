@@ -4,8 +4,10 @@ import "truffle/Assert.sol";
 import "truffle/DeployedAddresses.sol";
 import "../contracts/TxController.sol";
 import "../contracts/Utils.sol";
+import "../contracts/strings.sol";
 
 contract TestMyContract is Utils {
+    using strings for *;
     
     function testContractCreated() public {
         //test txController methods
@@ -22,18 +24,11 @@ contract TestMyContract is Utils {
 
         string memory nameStr = "LIFE";
         string memory symbolStr = "LFE";
-        /*bytes32 symbol = stringToBytes32("LFE");
-        bytes32 name = stringToBytes32("LIFE");
-        bytes32 proof = "ipfs goes here";*/
 
-        TxController mycontract = TxController(nameStr, symbolStr);//name, symbol);
-        //mycontract.createTx(this, providerOwner, 
-        //0, proof, 1, 123, 1234556789);
-        
-        //bytes32 expected = stringToBytes32("LFE");
-        bytes32 actual = stringToBytes32(mycontract.symbol());
+        TxController mycontract = TxController(nameStr, symbolStr);
+        string memory actual = mycontract.name());;
 
-        Assert.equal(actual, "LFE", "Symbol should be LFE");
+        Assert.equal(strings.toSlice(actual), strings.toSlice(nameStr), "Symbol should be LFE");
     }
 }
 

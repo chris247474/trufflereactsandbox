@@ -1,7 +1,9 @@
-pragma solidity ^0.4.18;
-pragma experimental ABIEncoderV2;
+pragma solidity ^0.4.24;
+//pragma experimental ABIEncoderV2;
 
-import "./ERC721Token.sol";
+import "../node_modules/openzeppelin-solidity/contracts/token/ERC721/ERC721Token.sol";
+import "./strings.sol";
+//import "./Utils.sol";
 
 //follows https://www.lucidchart.com/documents/edit/4668683a-2c2b-46e3-bd3f-2a99e759a800/0
 contract TxController is ERC721Token {
@@ -19,14 +21,14 @@ contract TxController is ERC721Token {
     /**
     * @dev Constructor function
     */
-    function TxController(string _name, string _symbol) public {
+    constructor (string _name, string _symbol) {
         name_ = _name;
         symbol_ = _symbol;
     }
     
     //datetime as string for soldAt param?
     function createTx(string _providerOwner, string _recipient, uint256 _tokenId, string proof, uint64 tokenPoints, uint64 soldFor, uint64 soldAt) public {
-        address providerOwnerStr = bytes32ToAddress(stringToBytes32(_providerOwner));
+        /*address providerOwnerStr = bytes32ToAddress(stringToBytes32(_providerOwner));
         address recipientStr = bytes32ToAddress(stringToBytes32(_recipient));
         
         _mint(providerOwnerStr, _tokenId);
@@ -37,7 +39,7 @@ contract TxController is ERC721Token {
         _setTokenURI(_tokenId, proof);
         setTokenPoints(_tokenId, tokenPoints);
         setSellPrice(_tokenId, soldFor);
-        setSellDate(_tokenId, soldAt);
+        setSellDate(_tokenId, soldAt);*/
     }
     
     //mapping from parent Transaction tokenid to all child Transaction tokenids
@@ -54,7 +56,7 @@ contract TxController is ERC721Token {
         addParentToChild(_tokenId, _childTokenId);
         childTokenIds[_tokenId].push(_childTokenId);
     }
-    function createChildrenForExistingTx(uint256 _tokenId, Tx[] childrenTxs) public {
+    /*function createChildrenForExistingTx(uint256 _tokenId, Tx[] childrenTxs) public {
         require(exists(_tokenId));
         
         //divide token points here or in webapp?
@@ -64,7 +66,7 @@ contract TxController is ERC721Token {
             addParentToChild(_tokenId, childrenTxs[c]._tokenId);
             childTokenIds[_tokenId].push(childrenTxs[c]._tokenId);
         }
-    }
+    }*/
     function addChildToParent(uint256 _parentTokenId, uint256 _childTokenId) internal {
         require(exists(_parentTokenId) && exists(_childTokenId));
         childTokenIds[_parentTokenId].push(_childTokenId);
